@@ -28,11 +28,15 @@ app.post('/product_create', (req, res)=>{
             res.sendStatus(500)
             return
         }
-        console.log("Inserted a new product with id: " + results.insertedId)
+        console.log("Inserted a new product with id: " + results.insertId)
          res.end()
     })
 
 })
+
+function newFunction(results) {
+    console.log("Inserted a new product with id: " + results.insertedId);
+}
 
 function getConnection() {
     return mysql.createConnection({
@@ -78,9 +82,18 @@ app.get("/", (req, res)=>{
 })
 
 app.get("/products", (req, res)=>{
-    var product1 = {name:"Punecta", title:"Pomegrenates and Honey Syrup", description:"Punecta is a natural immune booster. Punecta helps to improve your heart functionality.", imageUrl: "https://images.pexels.com/photos/1058433/pexels-photo-1058433.jpeg?auto=compress&cs=tinysrgb&h=350"}
-    const product2 = {name:"Pustisudha", title:"Fruits and Honey Syrup", description:"Pustisudha is a natural immune booster. Pustisudha helps to improve your heart functionality.", imageUrl:"https://images.pexels.com/photos/755724/pexels-photo-755724.jpeg?auto=compress&cs=tinysrgb&h=350"}  
-    res.json([product1, product2])
+    console.log("We are getting products")
+
+    const connection = getConnection()
+    const queryString = "SELECT * FROM mydb.products"
+    connection.query(queryString, (err, rows, fields)=>{
+        if (err){
+            console.log("Failed to query for products: " + err)
+            res.statusCode(500)
+            return
+        }
+        res.json(rows)
+    })
   })
 
 // localhost:3003
