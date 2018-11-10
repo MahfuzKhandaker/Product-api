@@ -1,0 +1,25 @@
+{
+  "name": "products-api",
+  "version": "1.0.0",
+  "description": "Mysql database with nodejs rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MahfuzKhandaker/Products-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MahfuzKhandaker/Products-api/issues"
+  },
+  "homepage": "https://github.com/MahfuzKhandaker/Products-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0"
+  }
+}
