@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const mysql = require('mysql')
 
 const bodyParser = require('body-parser')
+
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static('./public'))
 
