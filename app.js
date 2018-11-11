@@ -25,3 +25,5 @@ app.get("/", (req, res)=>{
 app.listen(3003, ()=>{
     console.log("Server is up and listening on port 3003....")
 })
+
+module.exports = router
