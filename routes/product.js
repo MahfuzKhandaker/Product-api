@@ -3,6 +3,18 @@
 const express = require('express')
 const mysql = require('mysql')
 
+// Create connection 
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'root',
+    database: 'mydb'
+})
+
+function getConnection() {
+    return pool
+}
+
 const router = express.Router()
 router.get('/messages', (req, res) =>{
     console.log("Responding to router....")
@@ -78,15 +90,5 @@ router.get('/product/:id', (req, res)=>{
 
    // res.end()
 })
-const pool = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    database: 'mydb'
-})
-
-function getConnection() {
-    return pool
-}
 
 module.exports = router
