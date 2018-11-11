@@ -85,6 +85,9 @@ function getConnection() {
        user: 'root',
        database: 'mydb'
     })
+
+function getConnection() {
+    return pool
 }
 
 module.exports = router
