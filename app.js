@@ -21,9 +21,9 @@ app.get("/", (req, res)=>{
     res.send("Hello from ROOOOOOT")
 })
 
-const PORT = process.env.PORT || 3003
+const PORT = process.env.PORT || 3003;
 app.listen(PORT, ()=>{
-    console.log("Server is up and listening on port: " + PORT)
+      console.log("Server is up and listening on port: " + PORT)
 })
 
 // module.exports = router
