@@ -78,13 +78,12 @@ router.get('/product/:id', (req, res)=>{
 
    // res.end()
 })
-  
-function getConnection() {
-    return mysql.createConnection({
-       host: 'localhost',
-       user: 'root',
-       database: 'mydb'
-    })
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'root',
+    database: 'mydb'
+})
 
 function getConnection() {
     return pool
